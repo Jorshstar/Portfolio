@@ -206,6 +206,28 @@ section {
 }
 
 /*About*/
+.about-container .right-about .image {
+  border-radius: 45%;
+  height: 80%;
+  width: 120%;
+  background-size: cover;
+  margin-left: -1rem;
+  background-color: var(--color-secondary);
+  transition: all 0.4s ease-in-out;
+}
+
+.about-container .right-about .image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: all 0.4s ease-in-out;
+  filter: grayscale(100%);
+}
+
+.about-container .right-about .image img:hover {
+  filter: grayscale(0);
+}
 .about-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -217,50 +239,12 @@ section {
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 2rem;
 }
-.about-container .right-about .about-item {
-  border: 1px solid var(--color-grey-5);
-  border-radius: 5px;
-  transition: all 0.4s ease-in-out;
-  box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.1);
-}
-.about-container .right-about .about-item:hover {
-  cursor: default;
-  transform: translateY(-5px);
-  border: 1px solid var(--color-secondary);
-  box-shadow: 1px 4px 15px rgba(0, 0, 0, 0.32);
-}
-.about-container .right-about .about-item .abt-text {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-}
-.about-container .right-about .about-item .abt-text .large-text {
-  font-size: 3rem;
-  font-weight: 700;
-  color: var(--color-secondary);
-}
-.about-container .right-about .about-item .abt-text .small-text {
-  padding-left: 3rem;
-  position: relative;
-  text-transform: uppercase;
-  font-size: 1.2rem;
-  color: var(--color-grey-1);
-  letter-spacing: 2px;
-}
-.about-container .right-about .about-item .abt-text .small-text::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 15px;
-  width: 2rem;
-  height: 2px;
-  background-color: var(--color-grey-5);
-}
+
 .about-container .left-about {
-  padding-right: 5rem;
+  padding-right: 4rem;
 }
 .about-container .left-about p {
-  line-height: 2rem;
+  line-height: 1.3rem;
   padding: 1rem;
   color: var(--color-grey-1);
 }
@@ -407,69 +391,104 @@ section {
   grid-gap: 2rem;
   margin-top: 3rem;
 }
-.portfolios .portfolio-item {
+
+.portfolios .portfolio {
   position: relative;
-  border-radius: 15px;
-}
-.portfolios .portfolio-item img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 15px;
-}
-.portfolios .portfolio-item .hover-items {
-  width: 100%;
-  height: 100%;
-  background-color: var(--color-secondary);
-  position: absolute;
-  left: 0;
-  top: 0;
-  border-radius: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  opacity: 0;
-  transform: scale(0);
+  background-color: var(--color-grey-5);
+  border-radius: 5px;
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.1);
   transition: all 0.4s ease-in-out;
-}
-.portfolios .portfolio-item .hover-items h3 {
-  font-size: 1.5rem;
-  color: var(--color-white);
-  margin-bottom: 1.5rem;
-}
-.portfolios .portfolio-item .hover-items .icons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.portfolios .portfolio-item .hover-items .icons .icon {
-  background-color: var(--color-primary);
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 1rem;
-  cursor: pointer;
-  transition: all 0.4s ease-in-out;
-}
-.portfolios .portfolio-item .hover-items .icons .icon i {
-  font-size: 1.5rem;
-  color: var(--color-white);
-  margin: 0 1rem;
-}
-.portfolios .portfolio-item .hover-items .icons .icon:hover {
-  background-color: var(--color-white);
-}
-.portfolios .portfolio-item .hover-items .icons .icon:hover i {
-  color: var(--color-primary);
 }
 
-.portfolio-item:hover .hover-items {
+.portfolios .portfolio:hover {
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px);
+  transition: all 0.4s ease-in-out;
+}
+
+.portfolios .portfolio:hover img {
+  filter: grayscale(0);
+  transform: scale(1.1);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8);
+}
+
+.portfolios .portfolio img {
+  width: 100%;
+  height: 300px;
+  object-fit: calc(20%);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  filter: grayscale(100%);
+  transition: all 0.4s ease-in-out;
+}
+
+.portfolios .portfolio .portfolio-text {
+  margin-top: -7px;
+  padding: 1.1rem;
+  border-top: 8px solid var(--color-secondary);
+}
+
+.portfolios .portfolio .portfolio-text h4 {
+  font-size: 1.5rem;
+  margin-bottom: 0.7rem;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+.portfolios .portfolio .portfolio-text h4:hover {
+  color: var(--color-secondary);
+}
+
+.portfolios .portfolio .portfolio-text p {
+  color: var(--color-grey-2);
+  line-height: 2rem;
+  padding-bottom: 1rem;
+}
+
+/* Add these new styles for the icon row and tooltip */
+.portfolios .portfolio .icon-row {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.portfolios .portfolio .icon-row a {
+  font-size: 35px;
+  color: var(--color-secondary);
+  /* Customize the color */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.portfolios .portfolio .icon-row a:hover {
+  color: var(--color-white);
+  /* Customize the hover color */
+}
+
+.portfolios .portfolio .icon-tooltip {
+  position: relative;
+}
+
+.portfolios .portfolio .icon-tooltip span {
+  visibility: hidden;
+  background-color: var(--color-primary);
+  /* Customize the tooltip background color */
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.portfolios .portfolio .icon-tooltip:hover span {
+  visibility: visible;
   opacity: 1;
-  transform: scale(1);
 }
 
 .blogs {
@@ -806,7 +825,11 @@ section {
   .contact-item {
     flex-direction: column;
     margin: 1rem 0;
+    
   }
+  .contact-item a:hover {
+      color: var(--color-secondary);
+    }
   .contact-item p {
     font-size: 15px;
     color: var(--color-grey-2);
